@@ -12,10 +12,11 @@ import math
 import subprocess
 import sys
 import zlib
-from datetime import date
 from pathlib import Path
 
 CELL = 5
+# 2: each place ends with its OpenStreetMap element, "n123", "w123" or "r123".
+FORMAT = 2
 NOTICE = ("Contains information from OpenStreetMap, © OpenStreetMap contributors, made available under the "
           "Open Database License (ODbL) 1.0: https://opendatacommons.org/licenses/odbl/1-0/")
 FILTER = [
@@ -69,16 +70,14 @@ def ele(t):
 
 
 def place(feature):
-    """[kind, lat·1e5, lon·1e5, name?, ele?], trailing nulls dropped; None for what the app skips."""
+    """[kind, lat·1e5, lon·1e5, name, ele, osm]; None for what the app skips."""
     t = feature["properties"]
     k = kind(t)
     if not k:
         return None
     lon, lat = centre(feature["geometry"])
-    row = [k, round(lat * 1e5), round(lon * 1e5), t.get("name"), ele(t) if k in ("hut", "bivouac") else None]
-    while row[-1] is None:
-        row.pop()
-    return row
+    osm = t["@type"][0] + str(t["@id"])
+    return [k, round(lat * 1e5), round(lon * 1e5), t.get("name"), ele(t) if k in ("hut", "bivouac") else None, osm]
 
 
 def main(pbf, release):
@@ -97,7 +96,7 @@ def main(pbf, release):
         row = place(feature)
         if not row:
             continue
-        key = (row[0], row[3] if len(row) > 3 else None, row[1] // 20, row[2] // 20)
+        key = (row[0], row[3], row[1] // 20, row[2] // 20)
         if key in seen:
             continue
         seen.add(key)
@@ -106,7 +105,8 @@ def main(pbf, release):
     if export.wait():
         sys.exit("osmium export failed")
 
-    manifest = {"build": date.today().isoformat(), "release": release,
+    # The release names the build, so a second build on one day still replaces the cells an app holds.
+    manifest = {"build": release.removeprefix("places-"), "format": FORMAT, "release": release,
                 "base": f"https://github.com/kenix/osm-places/releases/download/{release}/",
                 "licence": "ODbL-1.0", "attribution": "© OpenStreetMap contributors",
                 "cellDegrees": CELL, "cells": {}}

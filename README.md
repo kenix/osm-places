@@ -35,11 +35,17 @@ with `base` from the manifest. A cell missing from the manifest holds no data
 Apple's `NSData.decompressed(using: .zlib)` reads it) of
 
 ```json
-{"build": "2026-10-23", "licence": "…", "places": [["hut", 4610942, 788880, "Mischabelhütte", 3340], ["water", 4737000, 854000]]}
+{"build": "2026-10-23b", "licence": "…", "places": [["hut", 4610942, 788880, "Mischabelhütte", 3340, "n240063383"], ["water", 4737000, 854000, null, null, "n1234"]]}
 ```
 
-Each place is `[kind, lat·1e5, lon·1e5, name, ele]`, trailing nulls dropped.
-`ele` (metres) is kept for huts and bivouacs only.
+Each place is `[kind, lat·1e5, lon·1e5, name, ele, osm]`. `ele` (metres) is
+kept for huts and bivouacs only. `osm` is the OpenStreetMap element, `n`, `w`
+or `r` and its id, so `w123` is `https://www.openstreetmap.org/way/123`.
+
+The manifest's `format` is 2 since `osm` was added (`places-2026-10-23b`); a
+manifest without it is format 1, whose rows end after `ele` with trailing nulls
+dropped. A reader skips fields it does not know, so a new field goes at the end.
+`build` is the release name without `places-`.
 
 | Kind | OpenStreetMap tags |
 |---|---|
