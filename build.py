@@ -21,7 +21,7 @@ NOTICE = ("Contains information from OpenStreetMap, © OpenStreetMap contributor
           "Open Database License (ODbL) 1.0: https://opendatacommons.org/licenses/odbl/1-0/")
 FILTER = [
     "nwr/tourism=alpine_hut,wilderness_hut,camp_site,viewpoint",
-    "nwr/amenity=drinking_water,shelter",
+    "nwr/amenity=drinking_water,shelter,toilets",
     "nwr/drinking_water=yes",
 ]
 # Shelters a hiker cannot sit out a storm in.
@@ -51,6 +51,9 @@ def kind(t):
         return "water"
     if tourism == "viewpoint":
         return "viewpoint"
+    # Toilets anyone may use: not those only for a shop's or restaurant's customers.
+    if amenity == "toilets" and t.get("access") != "customers":
+        return "toilet"
     return None
 
 
