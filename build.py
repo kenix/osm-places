@@ -16,14 +16,18 @@ from pathlib import Path
 
 CELL = 5
 # 2: each place ends with its OpenStreetMap element, "n123", "w123" or "r123".
-FORMAT = 2
+# 3: then an object of the card's tags (CARD_TAGS), only when the element has any; kind "pass".
+FORMAT = 3
 NOTICE = ("Contains information from OpenStreetMap, © OpenStreetMap contributors, made available under the "
           "Open Database License (ODbL) 1.0: https://opendatacommons.org/licenses/odbl/1-0/")
 FILTER = [
     "nwr/tourism=alpine_hut,wilderness_hut,camp_site,viewpoint",
     "nwr/amenity=drinking_water,shelter,toilets",
     "nwr/drinking_water=yes",
+    "n/mountain_pass=yes",
 ]
+# Tags a place's card shows, under these names; a contact:* tag stands in for a missing plain one.
+CARD_TAGS = ("opening_hours", "seasonal", "fee", "drinking_water", "capacity", "website", "winter_room", "phone")
 # Shelters a hiker cannot sit out a storm in.
 NOT_SHELTER = {"public_transport", "picnic_shelter", "field_shelter", "sun_shelter", "pavilion", "gazebo",
                "changing_rooms", "parking"}
@@ -45,6 +49,9 @@ def kind(t):
     if amenity == "shelter":
         bus = "public_transport" in t or t.get("bus") == "yes" or t.get("highway") == "bus_stop"
         return None if bus or t.get("shelter_type") in NOT_SHELTER else "shelter"
+    # A pass is worth a pin only by its name (and height).
+    if t.get("mountain_pass") == "yes":
+        return "pass" if t.get("name") else None
     if t.get("drinking_water") == "no":
         return None
     if amenity == "drinking_water" or (t.get("drinking_water") == "yes" and any(t.get(k) == v for k, v in WATER_SOURCES)):
@@ -72,15 +79,24 @@ def ele(t):
         return None
 
 
+def card(t):
+    """The card's tags the element has, or None."""
+    tags = {k: t.get(k) or t.get("contact:" + k) for k in CARD_TAGS}
+    return {k: v for k, v in tags.items() if v} or None
+
+
 def place(feature):
-    """[kind, lat·1e5, lon·1e5, name, ele, osm]; None for what the app skips."""
+    """[kind, lat·1e5, lon·1e5, name, ele, osm, tags?]; None for what the app skips."""
     t = feature["properties"]
     k = kind(t)
     if not k:
         return None
     lon, lat = centre(feature["geometry"])
     osm = t["@type"][0] + str(t["@id"])
-    return [k, round(lat * 1e5), round(lon * 1e5), t.get("name"), ele(t) if k in ("hut", "bivouac") else None, osm]
+    row = [k, round(lat * 1e5), round(lon * 1e5), t.get("name"), ele(t) if k in ("hut", "bivouac", "pass") else None,
+           osm]
+    tags = card(t)
+    return row + [tags] if tags else row
 
 
 def main(pbf, release):

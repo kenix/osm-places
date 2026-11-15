@@ -1,8 +1,8 @@
 # OSM places
 
 Places a hiker looks for, from OpenStreetMap, packed so an app can find them
-on the device: huts, bivouacs, shelters, drinking water, campsites and
-viewpoints. Trail Trove reads them; nothing in here is specific to it.
+on the device: huts, bivouacs, shelters, drinking water, campsites,
+viewpoints, public toilets and mountain passes. Trail Trove reads them; nothing in here is specific to it.
 
 Published as GitHub Release assets, one release per build. **The data is not
 in this repository**: a release asset can be replaced, while binaries in the
@@ -38,11 +38,15 @@ Apple's `NSData.decompressed(using: .zlib)` reads it) of
 {"build": "2026-10-23b", "licence": "…", "places": [["hut", 4610942, 788880, "Mischabelhütte", 3340, "n240063383"], ["water", 4737000, 854000, null, null, "n1234"]]}
 ```
 
-Each place is `[kind, lat·1e5, lon·1e5, name, ele, osm]`. `ele` (metres) is
-kept for huts and bivouacs only. `osm` is the OpenStreetMap element, `n`, `w`
-or `r` and its id, so `w123` is `https://www.openstreetmap.org/way/123`.
+Each place is `[kind, lat·1e5, lon·1e5, name, ele, osm, tags]`. `ele` (metres)
+is kept for huts, bivouacs and passes only. `osm` is the OpenStreetMap element, `n`, `w`
+or `r` and its id, so `w123` is `https://www.openstreetmap.org/way/123`. `tags` is there only when the
+element has one of `opening_hours`, `seasonal`, `fee`, `drinking_water`,
+`capacity`, `website`, `winter_room` or `phone` (also read from `contact:*`),
+as an object of those tags' raw values.
 
-The manifest's `format` is 2 since `osm` was added (`places-2026-10-23b`); a
+The manifest's `format` is 3 since `tags` and the `pass` kind were added
+(`places-2026-11-15`), 2 since `osm` was added (`places-2026-10-23b`); a
 manifest without it is format 1, whose rows end after `ele` with trailing nulls
 dropped. A reader skips fields it does not know, so a new field goes at the end.
 `build` is the release name without `places-`.
@@ -55,6 +59,8 @@ dropped. A reader skips fields it does not know, so a new field goes at the end.
 | `water` | `amenity=drinking_water`; a spring, tap, fountain or well with `drinking_water=yes` |
 | `campsite` | `tourism=camp_site` |
 | `viewpoint` | `tourism=viewpoint` |
+| `toilet` | `amenity=toilets`, not `access=customers` |
+| `pass` | `mountain_pass=yes` on a node with a name |
 
 Never `access=private|no`, never `drinking_water=no`. Ways and areas sit at the
 mean of their outer ring.
