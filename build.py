@@ -16,7 +16,7 @@ from pathlib import Path
 
 CELL = 5
 # 2: each place ends with its OpenStreetMap element, "n123", "w123" or "r123".
-# 3: then an object of the card's tags (CARD_TAGS), only when the element has any; kind "pass".
+# 3: then an object of the card's tags (CARD_TAGS), only when the element has any (its kind "pass" was dropped again).
 FORMAT = 3
 NOTICE = ("Contains information from OpenStreetMap, © OpenStreetMap contributors, made available under the "
           "Open Database License (ODbL) 1.0: https://opendatacommons.org/licenses/odbl/1-0/")
@@ -24,7 +24,6 @@ FILTER = [
     "nwr/tourism=alpine_hut,wilderness_hut,camp_site,viewpoint",
     "nwr/amenity=drinking_water,shelter,toilets",
     "nwr/drinking_water=yes",
-    "n/mountain_pass=yes",
 ]
 # Tags a place's card shows, under these names; a contact:* tag stands in for a missing plain one.
 CARD_TAGS = ("opening_hours", "seasonal", "fee", "drinking_water", "capacity", "website", "winter_room", "phone")
@@ -49,9 +48,6 @@ def kind(t):
     if amenity == "shelter":
         bus = "public_transport" in t or t.get("bus") == "yes" or t.get("highway") == "bus_stop"
         return None if bus or t.get("shelter_type") in NOT_SHELTER else "shelter"
-    # A pass is worth a pin only by its name (and height).
-    if t.get("mountain_pass") == "yes":
-        return "pass" if t.get("name") else None
     if t.get("drinking_water") == "no":
         return None
     if amenity == "drinking_water" or (t.get("drinking_water") == "yes" and any(t.get(k) == v for k, v in WATER_SOURCES)):
@@ -93,7 +89,7 @@ def place(feature):
         return None
     lon, lat = centre(feature["geometry"])
     osm = t["@type"][0] + str(t["@id"])
-    row = [k, round(lat * 1e5), round(lon * 1e5), t.get("name"), ele(t) if k in ("hut", "bivouac", "pass") else None,
+    row = [k, round(lat * 1e5), round(lon * 1e5), t.get("name"), ele(t) if k in ("hut", "bivouac") else None,
            osm]
     tags = card(t)
     return row + [tags] if tags else row

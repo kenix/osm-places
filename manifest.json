@@ -1,246 +1,246 @@
 {
- "build": "2026-11-15",
+ "build": "2026-11-15b",
  "format": 3,
- "release": "places-2026-11-15",
- "base": "https://github.com/kenix/osm-places/releases/download/places-2026-11-15/",
+ "release": "places-2026-11-15b",
+ "base": "https://github.com/kenix/osm-places/releases/download/places-2026-11-15b/",
  "licence": "ODbL-1.0",
  "attribution": "\u00a9 OpenStreetMap contributors",
  "cellDegrees": 5,
  "cells": {
   "30_-20": {
-   "bytes": 24187,
-   "places": 1431
+   "bytes": 24164,
+   "places": 1430
   },
   "30_20": {
-   "bytes": 744,
+   "bytes": 745,
    "places": 27
   },
   "30_25": {
-   "bytes": 327,
+   "bytes": 328,
    "places": 6
   },
   "30_30": {
-   "bytes": 16847,
-   "places": 1060
+   "bytes": 16739,
+   "places": 1058
   },
   "35_-10": {
-   "bytes": 154531,
-   "places": 9077
+   "bytes": 144683,
+   "places": 8606
   },
   "35_-30": {
-   "bytes": 20987,
+   "bytes": 20988,
    "places": 1149
   },
   "35_-35": {
-   "bytes": 2845,
+   "bytes": 2846,
    "places": 138
   },
   "35_-5": {
-   "bytes": 215419,
-   "places": 12962
+   "bytes": 196256,
+   "places": 12085
   },
   "35_0": {
-   "bytes": 37729,
-   "places": 2071
+   "bytes": 27088,
+   "places": 1552
   },
   "35_10": {
-   "bytes": 55642,
-   "places": 3265
+   "bytes": 50266,
+   "places": 3054
   },
   "35_15": {
-   "bytes": 84551,
-   "places": 5203
+   "bytes": 82485,
+   "places": 5126
   },
   "35_20": {
-   "bytes": 95882,
-   "places": 5621
+   "bytes": 95406,
+   "places": 5606
   },
   "35_25": {
-   "bytes": 91432,
-   "places": 5754
+   "bytes": 90869,
+   "places": 5734
   },
   "35_30": {
-   "bytes": 76682,
-   "places": 4998
+   "bytes": 76120,
+   "places": 4980
   },
   "35_35": {
-   "bytes": 28301,
-   "places": 1867
+   "bytes": 26831,
+   "places": 1808
   },
   "35_40": {
-   "bytes": 12450,
-   "places": 759
+   "bytes": 11791,
+   "places": 736
   },
   "35_5": {
-   "bytes": 23909,
-   "places": 1332
+   "bytes": 22771,
+   "places": 1290
   },
   "40_-10": {
-   "bytes": 310570,
-   "places": 18027
+   "bytes": 301926,
+   "places": 17705
   },
   "40_-5": {
-   "bytes": 579500,
-   "places": 35195
+   "bytes": 550298,
+   "places": 34095
   },
   "40_0": {
-   "bytes": 659582,
-   "places": 36924
+   "bytes": 620119,
+   "places": 35414
   },
   "40_10": {
-   "bytes": 525229,
-   "places": 32165
+   "bytes": 511735,
+   "places": 31673
   },
   "40_15": {
-   "bytes": 253568,
-   "places": 14801
+   "bytes": 250833,
+   "places": 14704
   },
   "40_20": {
-   "bytes": 250657,
-   "places": 15338
+   "bytes": 248011,
+   "places": 15254
   },
   "40_25": {
-   "bytes": 129105,
-   "places": 7463
+   "bytes": 128349,
+   "places": 7440
   },
   "40_30": {
-   "bytes": 58158,
-   "places": 3193
+   "bytes": 54659,
+   "places": 3059
   },
   "40_35": {
-   "bytes": 64408,
-   "places": 3685
+   "bytes": 62481,
+   "places": 3614
   },
   "40_40": {
-   "bytes": 208686,
-   "places": 11731
+   "bytes": 166122,
+   "places": 10036
   },
   "40_45": {
-   "bytes": 14254,
-   "places": 850
+   "bytes": 12995,
+   "places": 814
   },
   "40_5": {
-   "bytes": 503278,
-   "places": 28577
+   "bytes": 452177,
+   "places": 26608
   },
   "45_-10": {
-   "bytes": 1754,
+   "bytes": 1755,
    "places": 79
   },
   "45_-5": {
-   "bytes": 307483,
-   "places": 16323
+   "bytes": 306625,
+   "places": 16297
   },
   "45_0": {
-   "bytes": 460026,
-   "places": 27047
+   "bytes": 452566,
+   "places": 26776
   },
   "45_10": {
-   "bytes": 1237081,
-   "places": 66654
+   "bytes": 1166180,
+   "places": 64075
   },
   "45_15": {
-   "bytes": 717342,
-   "places": 41094
+   "bytes": 710492,
+   "places": 40866
   },
   "45_20": {
-   "bytes": 360807,
-   "places": 21470
+   "bytes": 356459,
+   "places": 21328
   },
   "45_25": {
-   "bytes": 114852,
-   "places": 6741
+   "bytes": 113219,
+   "places": 6686
   },
   "45_30": {
-   "bytes": 52229,
+   "bytes": 52230,
    "places": 3126
   },
   "45_35": {
-   "bytes": 62427,
-   "places": 3740
+   "bytes": 62375,
+   "places": 3738
   },
   "45_40": {
-   "bytes": 17068,
-   "places": 1014
+   "bytes": 17034,
+   "places": 1013
   },
   "45_5": {
-   "bytes": 1893031,
-   "places": 108430
+   "bytes": 1819162,
+   "places": 105760
   },
   "50_-10": {
-   "bytes": 79818,
-   "places": 4629
+   "bytes": 79371,
+   "places": 4611
   },
   "50_-15": {
-   "bytes": 3130,
-   "places": 140
+   "bytes": 3103,
+   "places": 139
   },
   "50_-5": {
-   "bytes": 357424,
-   "places": 19824
+   "bytes": 356212,
+   "places": 19783
   },
   "50_0": {
-   "bytes": 294817,
-   "places": 15295
+   "bytes": 294487,
+   "places": 15286
   },
   "50_10": {
-   "bytes": 701484,
-   "places": 37170
+   "bytes": 700584,
+   "places": 37143
   },
   "50_15": {
-   "bytes": 258593,
-   "places": 14168
+   "bytes": 256448,
+   "places": 14092
   },
   "50_20": {
-   "bytes": 145690,
-   "places": 8254
+   "bytes": 145648,
+   "places": 8253
   },
   "50_25": {
-   "bytes": 109342,
+   "bytes": 109343,
    "places": 6793
   },
   "50_30": {
-   "bytes": 63422,
+   "bytes": 63424,
    "places": 3873
   },
   "50_35": {
-   "bytes": 68119,
+   "bytes": 68120,
    "places": 4273
   },
   "50_40": {
-   "bytes": 24835,
+   "bytes": 24836,
    "places": 1516
   },
   "50_5": {
-   "bytes": 883297,
-   "places": 46467
+   "bytes": 880998,
+   "places": 46393
   },
   "55_-10": {
-   "bytes": 26571,
-   "places": 1225
+   "bytes": 25548,
+   "places": 1185
   },
   "55_-5": {
-   "bytes": 66668,
-   "places": 3438
+   "bytes": 66243,
+   "places": 3424
   },
   "55_0": {
-   "bytes": 272,
+   "bytes": 273,
    "places": 1
   },
   "55_10": {
-   "bytes": 257344,
+   "bytes": 257345,
    "places": 13920
   },
   "55_15": {
-   "bytes": 90327,
+   "bytes": 90329,
    "places": 4841
   },
   "55_20": {
-   "bytes": 79043,
+   "bytes": 79045,
    "places": 4258
   },
   "55_25": {
-   "bytes": 79893,
+   "bytes": 79895,
    "places": 4051
   },
   "55_30": {
@@ -248,35 +248,35 @@
    "places": 3990
   },
   "55_35": {
-   "bytes": 121183,
+   "bytes": 121185,
    "places": 7999
   },
   "55_40": {
-   "bytes": 39311,
+   "bytes": 39312,
    "places": 2484
   },
   "55_5": {
-   "bytes": 168047,
-   "places": 8766
+   "bytes": 167878,
+   "places": 8760
   },
   "60_-10": {
-   "bytes": 4343,
-   "places": 194
+   "bytes": 3710,
+   "places": 163
   },
   "60_-15": {
-   "bytes": 1509,
-   "places": 51
+   "bytes": 1452,
+   "places": 49
   },
   "60_-20": {
-   "bytes": 10123,
-   "places": 506
+   "bytes": 9953,
+   "places": 499
   },
   "60_-25": {
-   "bytes": 12189,
-   "places": 604
+   "bytes": 11860,
+   "places": 592
   },
   "60_-5": {
-   "bytes": 1952,
+   "bytes": 1954,
    "places": 80
   },
   "60_0": {
@@ -284,75 +284,75 @@
    "places": 66
   },
   "60_10": {
-   "bytes": 93627,
+   "bytes": 93628,
    "places": 4907
   },
   "60_15": {
-   "bytes": 62986,
+   "bytes": 62988,
    "places": 3459
   },
   "60_20": {
-   "bytes": 98964,
+   "bytes": 98965,
    "places": 5533
   },
   "60_25": {
-   "bytes": 120564,
+   "bytes": 120565,
    "places": 6653
   },
   "60_30": {
-   "bytes": 58517,
+   "bytes": 58519,
    "places": 3546
   },
   "60_35": {
-   "bytes": 7478,
+   "bytes": 7479,
    "places": 421
   },
   "60_40": {
-   "bytes": 7095,
+   "bytes": 7097,
    "places": 434
   },
   "60_5": {
-   "bytes": 78428,
-   "places": 3800
+   "bytes": 78183,
+   "places": 3792
   },
   "65_-15": {
-   "bytes": 3610,
-   "places": 147
+   "bytes": 3103,
+   "places": 124
   },
   "65_-20": {
-   "bytes": 8631,
-   "places": 414
+   "bytes": 8257,
+   "places": 401
   },
   "65_-25": {
-   "bytes": 7224,
-   "places": 322
+   "bytes": 6082,
+   "places": 272
   },
   "65_10": {
-   "bytes": 17892,
-   "places": 875
+   "bytes": 17835,
+   "places": 873
   },
   "65_15": {
-   "bytes": 34859,
-   "places": 1706
+   "bytes": 34785,
+   "places": 1703
   },
   "65_20": {
-   "bytes": 37538,
+   "bytes": 37539,
    "places": 1837
   },
   "65_25": {
-   "bytes": 54515,
+   "bytes": 54516,
    "places": 2656
   },
   "65_30": {
-   "bytes": 27261,
-   "places": 1648
+   "bytes": 24879,
+   "places": 1553
   },
   "65_35": {
-   "bytes": 3076,
+   "bytes": 3077,
    "places": 127
   },
   "65_40": {
-   "bytes": 428,
+   "bytes": 429,
    "places": 9
   },
   "70_-10": {
@@ -360,15 +360,15 @@
    "places": 5
   },
   "70_15": {
-   "bytes": 445,
+   "bytes": 446,
    "places": 9
   },
   "70_20": {
-   "bytes": 2612,
-   "places": 99
+   "bytes": 2530,
+   "places": 96
   },
   "70_25": {
-   "bytes": 4222,
+   "bytes": 4223,
    "places": 170
   },
   "70_30": {
@@ -380,7 +380,7 @@
    "places": 29
   },
   "75_15": {
-   "bytes": 1213,
+   "bytes": 1214,
    "places": 46
   },
   "80_15": {
@@ -392,7 +392,7 @@
    "places": 3
   },
   "80_25": {
-   "bytes": 224,
+   "bytes": 225,
    "places": 1
   }
  }
